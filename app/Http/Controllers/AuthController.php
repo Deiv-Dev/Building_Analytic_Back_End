@@ -99,11 +99,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function all()
-    {
-        return User::get();
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *

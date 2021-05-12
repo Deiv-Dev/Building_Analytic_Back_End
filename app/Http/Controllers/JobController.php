@@ -81,7 +81,9 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        //
+        $userId = Auth::id();
+        $allClients = Job::select('*')->where('user_id',$userId)->get();
+        return response()->json($allClients, 201);
     }
 
     /**

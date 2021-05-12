@@ -18,8 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('/all', 'App\Http\Controllers\AuthController@all');
 Route::post('/login', 'App\Http\Controllers\AuthController@login');
 Route::delete('/logout', 'App\Http\Controllers\AuthController@logout');
 Route::post('/newtoken', 'App\Http\Controllers\AuthController@newtoken'); //test
@@ -31,6 +29,7 @@ Route::post('/client', 'App\Http\Controllers\ClientController@create');
 Route::get('/allclients', 'App\Http\Controllers\ClientController@show');
 
 Route::post('/job', 'App\Http\Controllers\JobController@create');
+Route::get('/alljobs', 'App\Http\Controllers\JobController@show');
 
 Route::post('/workerpayments', 'App\Http\Controllers\WorkerPayController@create');
 Route::get('/all', 'App\Http\Controllers\WorkerPayController@show');
