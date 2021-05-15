@@ -41,23 +41,24 @@ class JobController extends Controller
             ]);
             $client = $request->input('client_id');
             $createdJob = Job::latest()->first()->id;
-            // $newer = Client::select('job_id')
-            // ->where('id', $client)
-            // ->get();
-            // $names = Client::select('name')
-            //     ->where('id', $client)
-            //     ->get();
-            // if($newer == 'null'){
+            $clientJob = Client::select('job_id')
+            ->where('id', $client)
+            ->get();
+            $names = Client::select('name')
+                ->where('id', $client)
+                ->get();
+            if($clientJob[0]['job_id'] == NULL){
                 Client::where('id', $client)->update(array('job_id' => $createdJob)); 
-            // }else{
-            //    Client::create([
-            //     'name' => $names[0]('name'),
-            //     'job_id' => $createdJob,
-            //     'user_id' => $userId
-            // ]);
-            // }
             
-            return response()->json($name, 201);
+            }else{
+               Client::create([
+                'name' => $names[0]['name'],
+                'job_id' => $createdJob,
+                'user_id' => $userId
+            ]);
+            }
+            
+            return response()->json($clientJob, 201);
         }
     }
 
