@@ -24,6 +24,7 @@ Route::post('/newtoken', 'App\Http\Controllers\AuthController@newtoken'); //test
 Route::post('/register', 'App\Http\Controllers\AuthController@register');
 
 Route::post('/worker', 'App\Http\Controllers\WorkerController@create');
+Route::get('/allworkers', 'App\Http\Controllers\WorkerController@show');
 
 Route::post('/client', 'App\Http\Controllers\ClientController@create');
 Route::get('/allclients', 'App\Http\Controllers\ClientController@show');

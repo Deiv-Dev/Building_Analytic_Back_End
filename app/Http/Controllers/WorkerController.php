@@ -31,6 +31,13 @@ class WorkerController extends Controller
         }
     }
 
+    public function show(Worker $worker)
+    {
+        $userId = Auth::id();
+        $allWorkers = Worker::select('*')->where('user_id',$userId)->get();
+        return response()->json($allWorkers, 201);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,17 +45,6 @@ class WorkerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Worker  $worker
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Worker $worker)
     {
         //
     }
