@@ -116,8 +116,8 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy(Job $job_id)
     {
-        //
+        $job_id -> delete();
     }
 }

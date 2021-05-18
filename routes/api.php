@@ -24,14 +24,17 @@ Route::post('/newtoken', 'App\Http\Controllers\AuthController@newtoken'); //test
 Route::post('/register', 'App\Http\Controllers\AuthController@register');
 
 Route::post('/worker', 'App\Http\Controllers\WorkerController@create');
-Route::get('/allworkers', 'App\Http\Controllers\WorkerController@show');
+Route::get('/all_workers', 'App\Http\Controllers\WorkerController@show');
+Route::delete('/worker_delete/{worker_id}', 'App\Http\Controllers\WorkerController@destroy');
 
 Route::post('/client', 'App\Http\Controllers\ClientController@create');
-Route::get('/allclients', 'App\Http\Controllers\ClientController@show');
+Route::get('/all_clients', 'App\Http\Controllers\ClientController@show');
+Route::delete('/client_delete/{client_id}', 'App\Http\Controllers\ClientController@destroy');
 
 Route::post('/job', 'App\Http\Controllers\JobController@create');
-Route::get('/alljobs', 'App\Http\Controllers\JobController@show');
+Route::get('/all_jobs', 'App\Http\Controllers\JobController@show');
+Route::delete('/job_delete/{job_id}', 'App\Http\Controllers\JobController@destroy');
 
-Route::post('/workerpayments', 'App\Http\Controllers\WorkerPayController@create');
+Route::post('/worker_payments', 'App\Http\Controllers\WorkerPayController@create');
 Route::get('/all', 'App\Http\Controllers\WorkerPayController@show');
 //Route::middleware('auth:api')->get('/create', 'App\Http\Controllers\AuthController@create');

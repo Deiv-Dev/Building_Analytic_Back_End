@@ -69,7 +69,7 @@ class WorkerController extends Controller
      */
     public function update(Request $request, Worker $worker)
     {
-        //
+        
     }
 
     /**
@@ -78,8 +78,8 @@ class WorkerController extends Controller
      * @param  \App\Models\Worker  $worker
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Worker $worker)
+    public function destroy(Worker $worker_id)
     {
-        //
+        $worker_id -> delete();
     }
 }
