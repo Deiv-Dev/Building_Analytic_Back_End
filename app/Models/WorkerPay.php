@@ -10,7 +10,7 @@ class WorkerPay extends Model
     use HasFactory;
 
     protected $fillable = [
-        'payd',
+        'you_payd',
         'user_id'
     ];
 
