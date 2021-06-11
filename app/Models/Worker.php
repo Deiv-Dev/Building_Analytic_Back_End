@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\WorkerPay;
 
 class Worker extends Model
 {
@@ -12,8 +13,6 @@ class Worker extends Model
 
     protected $fillable = [
         'name',
-        'you_payd',
-        'they_earned'
         'user_id'
     ];
 
@@ -22,4 +21,8 @@ class Worker extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function workerPay()
+    {
+        return $this->hasMany(WorkerPay::class);
+    }
 }

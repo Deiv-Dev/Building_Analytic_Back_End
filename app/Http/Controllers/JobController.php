@@ -21,8 +21,8 @@ class JobController extends Controller
         $job = Validator::make($request->all(),[
             'address' => 'required|string|max:20',
             'description' => 'required|string|max:255',
-            'start' => 'required|string|max:20',
-            'finish' => 'required|string|max:20',
+            'start' => 'required|date',
+            'finish' => 'required|date',
             'client_id' => 'required|string|max:20',
         ]);
 

@@ -17,14 +17,20 @@ class WorkerPayController extends Controller
     {
         $userId = Auth::id();
         $pay = Validator::make($request->all(),[
-            'payd' => 'required|integer|max:1000000',
+            'you_payd' => 'required|integer|max:1000000',
+            'payd_from_date' => 'required|date',
+            'payd_till_date' => 'required|date',
+            'worker_id' => 'required|integer|max:1000000'
         ]);
 
         if($pay->fails()){
             return response()->json(["error" => $pay->errors()]);
         }else{
             $name = WorkerPay::create([
-                'payd' => request('payd'),
+                'you_payd' => request('you_payd'),
+                'payd_from_date' => request('payd_from_date'),
+                'payd_till_date' => request('payd_till_date'),
+                'worker_id' => 10,
                 'user_id' => $userId,
             ]);
             return response()->json($name, 201);

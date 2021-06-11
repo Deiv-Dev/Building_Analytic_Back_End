@@ -17,7 +17,10 @@ class CreateWorkerPaysTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('you_payd');
+            $table->date('payd_from_date');
+            $table->date('payd_till_date');
             $table->integer('user_id');
+            $table->integer('worker_id');
         });
     }
 

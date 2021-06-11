@@ -17,8 +17,6 @@ class CreateWorkersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->integer('you_payd')->nullable();
-            $table->integer('they_earned')->nullable();
             $table->integer('user_id');
         });
     }
